@@ -1,0 +1,17 @@
+﻿วันพฤ ที่ 7 เวลา 14.00 ครับ
+
+apt-get update
+
+docker run -it ubuntu
+
+docker run --name "hello"  -d -p 8081:80 -v "${pwd}/www:/usr/share/nginx/html" nginx:1.13.7
+
+docker run --name "hello"  -d -p 8081:80 -v "${pwd}/www:/usr/share/nginx/html" -v "${pwd}/config:/etc/nginx/conf.d/" nginx:1.13.7
+
+docker exec -it hello sh
+${cd}
+#copy file
+cat /etc/nginx/conf.d/default.conf  > /usr/share/nginx/html/default.conf
+
+docker build
+docker run -d -it --name "hello" -p 8080:80 tonkung/hello
